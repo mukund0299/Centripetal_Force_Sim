@@ -1,0 +1,11 @@
+Resources for creating shapes
+https://docs.oracle.com/javase/8/javafx/api/javafx/scene/shape/Shape.html
+https://www.tutorialspoint.com/javafx/javafx_2d_shapes.htm
+
+
+Resources for moving shapes
+http://stackoverflow.com/questions/21396055/moving-shapes-in-javafx-canvas
+http://docs.oracle.com/javafx/2/api/javafx/animation/TranslateTransition.html
+https://gist.github.com/jewelsea/4569878
+https://docs.oracle.com/javafx/2/api/javafx/animation/KeyFrame.html
+https://docs.oracle.com/javase/8/javafx/api/javafx/animation/Timeline.html
