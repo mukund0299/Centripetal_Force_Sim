@@ -1,5 +1,7 @@
 package sample;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXSlider;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Slider;
 
@@ -13,40 +15,40 @@ public class DataRetrieval {
         return instance;
     }
 
-    private Slider positionSlider;
-    private Slider frictionSlider;
-    private ChoiceBox<String> periodBox;
-    private Slider massSlider;
+    private JFXSlider positionSlider;
+    private JFXSlider frictionSlider;
+    private JFXComboBox<String> periodBox;
+    private JFXSlider massSlider;
 
-    public Slider getPositionSlider() {
+    public JFXSlider getPositionSlider() {
         return positionSlider;
     }
 
-    public void setPositionSlider(Slider positionSlider) {
+    public void setPositionSlider(JFXSlider positionSlider) {
         this.positionSlider = positionSlider;
     }
 
-    public Slider getFrictionSlider() {
+    public JFXSlider getFrictionSlider() {
         return frictionSlider;
     }
 
-    public void setFrictionSlider(Slider frictionSlider) {
+    public void setFrictionSlider(JFXSlider frictionSlider) {
         this.frictionSlider = frictionSlider;
     }
 
-    public ChoiceBox<String> getPeriodBox() {
+    public JFXComboBox<String> getPeriodBox() {
         return periodBox;
     }
 
-    public void setPeriodBox(ChoiceBox<String> periodBox) {
+    public void setPeriodBox(JFXComboBox<String> periodBox) {
         this.periodBox = periodBox;
     }
 
-    public Slider getMassSlider() {
+    public JFXSlider getMassSlider() {
         return massSlider;
     }
 
-    public void setMassSlider(Slider massSlider) {
+    public void setMassSlider(JFXSlider massSlider) {
         this.massSlider = massSlider;
     }
 }

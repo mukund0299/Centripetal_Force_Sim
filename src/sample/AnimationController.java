@@ -9,13 +9,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.control.Label;
+import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.awt.geom.Arc2D;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,13 +25,32 @@ import java.util.ResourceBundle;
 
 public class AnimationController implements Initializable{
     @FXML
-    Button backToInputBtn;
-
-    @FXML
     Circle platform;
 
     @FXML
     Rectangle box;
+
+    @FXML
+    Label positionLabel;
+
+    @FXML
+    Label frictionLabel;
+
+    @FXML
+    Label centForceLabel;
+
+    @FXML
+    Label velocityLabel;
+
+    @FXML
+    Label periodLabel;
+
+    @FXML
+    Label frictionForceLabel;
+
+    //setting the time of rotation per period option
+    final double fast = 3;
+    final double slow = 6;
 
     @FXML
     public void handleBackToInput(ActionEvent event) throws IOException{
@@ -47,7 +65,7 @@ public class AnimationController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //Retrieving the data from the intermediary class
-        double position = (DataRetrieval.getInstance().getPositionSlider().getValue());
+        double position = DataRetrieval.getInstance().getPositionSlider().getValue();
         double friction = DataRetrieval.getInstance().getFrictionSlider().getValue();
         double mass = DataRetrieval.getInstance().getMassSlider().getValue();
         String period = DataRetrieval.getInstance().getPeriodBox().getValue();
@@ -58,31 +76,70 @@ public class AnimationController implements Initializable{
         box.setY(platform.getCenterY() - (box.getHeight() / 2));
         box.setX((platform.getCenterX() + range * position) - box.getWidth());
 
-        if (period.equals("Fast")){
-            double normalForce = mass*9.8;
-            double frictionForce = normalForce*friction;
+        if (period.equals("Fast")) {
+            double normalForce = mass * 9.8;
+            double frictionForce = normalForce * friction;
             //Moving the box around on the path
-            Circle path = new Circle(platform.getCenterX(), platform.getCenterY(), box.getX()-platform.getCenterX());
-            double centForce = (mass*(2*Math.PI*path.getRadius()))/path.getRadius();
+            Circle path = new Circle(platform.getCenterX(), platform.getCenterY(), box.getX() - platform.getCenterX());
+            double centForce = (mass * (2 * Math.PI * path.getRadius())) / path.getRadius();
+            double velocity = (2*Math.PI*path.getRadius())/fast;
+            setLabels(position, friction, centForce, velocity, fast, frictionForce);
             if (centForce > frictionForce) {
                 PathTransition boxPath = new PathTransition();
                 boxPath.setNode(box);
-                boxPath.setDuration(Duration.seconds(2));
+                boxPath.setDuration(Duration.seconds(fast));
                 boxPath.setPath(path);
                 boxPath.setInterpolator(Interpolator.LINEAR);
                 boxPath.setCycleCount(PathTransition.INDEFINITE);
                 boxPath.play();
-            }
-            else{
-                Line altPath = new Line(box.getX(), box.getY(), box.getX(), 0);
+            } else {
+                ArcTo altPath = new ArcTo(box.getX(), box.getY(), 50f, 50f);
                 PathTransition alternatePath = new PathTransition();
                 alternatePath.setNode(box);
-                alternatePath.setDuration(Duration.seconds(2));
+                alternatePath.setDuration(Duration.seconds(fast));
                 alternatePath.setPath(altPath);
                 alternatePath.setInterpolator(Interpolator.LINEAR);
                 alternatePath.setCycleCount(PathTransition.INDEFINITE);
                 alternatePath.play();
             }
         }
+        else{
+            double normalForce = mass * 9.8;
+            double frictionForce = normalForce * friction;
+            //Moving the box around on the path
+            Circle path = new Circle(platform.getCenterX(), platform.getCenterY(), box.getX() - platform.getCenterX());
+            double centForce = (mass * (2 * Math.PI * path.getRadius())) / path.getRadius();
+            double velocity = (2*Math.PI*path.getRadius())/slow;
+            System.out.println("centForce = " + centForce);
+            System.out.println("frictionForce = " + frictionForce);
+            setLabels(position, friction, centForce, velocity, slow, frictionForce);
+            if (centForce > frictionForce) {
+                PathTransition boxPath = new PathTransition();
+                boxPath.setNode(box);
+                boxPath.setDuration(Duration.seconds(slow));
+                boxPath.setPath(path);
+                boxPath.setInterpolator(Interpolator.LINEAR);
+                boxPath.setCycleCount(PathTransition.INDEFINITE);
+                boxPath.play();
+            } else {
+                Line altPath = new Line(box.getX(), box.getY(), box.getX(), 0);
+                PathTransition alternatePath = new PathTransition();
+                alternatePath.setNode(box);
+                alternatePath.setDuration(Duration.seconds(fast));
+                alternatePath.setPath(altPath);
+                alternatePath.setInterpolator(Interpolator.LINEAR);
+                alternatePath.setCycleCount(PathTransition.INDEFINITE);
+                alternatePath.play();
+            }
+        }
+    }
+    //Update all the labels on the side of the screen with the right values
+    public void setLabels(double position, double friction, double centForce, double velocity, double period, double frictionForce){
+        positionLabel.setText(Double.toString(position));
+        frictionLabel.setText(Double.toString(friction));
+        centForceLabel.setText(Double.toString(centForce));
+        velocityLabel.setText(Double.toString(velocity));
+        periodLabel.setText(Double.toString(period));
+        frictionLabel.setText(Double.toString(frictionForce));
     }
 }

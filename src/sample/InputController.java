@@ -1,5 +1,7 @@
 package sample;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXSlider;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,8 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Slider;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -19,16 +19,16 @@ public class InputController implements Initializable{
 
     //Controls
     @FXML
-    Slider positionInput = new Slider();
+    JFXSlider positionInput;
 
     @FXML
-    Slider frictionInput = new Slider();
+    JFXSlider frictionInput;
 
     @FXML
-    ChoiceBox<String> periodInput = new ChoiceBox<>();
+    JFXComboBox<String> periodInput;
 
     @FXML
-    Slider massInput = new Slider();
+    JFXSlider massInput;
 
     @FXML
     public void handleCreateAnimation(ActionEvent event) throws IOException{

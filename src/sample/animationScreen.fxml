@@ -1,14 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<Pane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AnimationController">
+<Pane prefHeight="600.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AnimationController">
     <children>
-        <Button fx:id="backToInputBtn" mnemonicParsing="false" onAction="#handleBackToInput" text="Back to Input" />
         <Circle fx:id="platform" centerX="400.0" centerY="301.0" fill="#1f93ff34" radius="273.0" stroke="BLACK" strokeType="INSIDE" />
         <Rectangle fx:id="box" arcHeight="5.0" arcWidth="5.0" fill="#ff1f1f" height="75.0" stroke="BLACK" strokeType="INSIDE" width="75.0" x="561.0" y="251.0" />
+      <JFXButton layoutX="14.0" layoutY="8.0" onAction="#handleBackToInput" prefHeight="40.0" prefWidth="168.0" text="Back to Input">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="719.0" layoutY="48.0" text="Position - ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="722.0" layoutY="85.0" text="Friction - ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="722.0" layoutY="125.0" text="Centripetal Force - ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="723.0" layoutY="168.0" text="Velocity - ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="723.0" layoutY="210.0" text="Period - ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="centForceLabel" layoutX="923.0" layoutY="125.0" prefHeight="26.0" prefWidth="152.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="velocityLabel" layoutX="923.0" layoutY="168.0" prefHeight="26.0" prefWidth="152.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="periodLabel" layoutX="923.0" layoutY="210.0" prefHeight="26.0" prefWidth="152.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="frictionLabel" layoutX="923.0" layoutY="85.0" prefHeight="26.0" prefWidth="152.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="positionLabel" layoutX="923.0" layoutY="48.0" prefHeight="26.0" prefWidth="152.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="frictionForceLabel" layoutX="723.0" layoutY="251.0" text="Friction Force - ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="periodLabel1" layoutX="923.0" layoutY="251.0" prefHeight="26.0" prefWidth="152.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
     </children>
 </Pane>
