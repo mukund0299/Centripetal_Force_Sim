@@ -20,6 +20,7 @@ public class DataRetrieval {
     private JFXComboBox<String> periodBox;
     private JFXSlider massSlider;
     private JFXSlider positionSlider2;
+    private JFXSlider massSlider2;
 
     public JFXSlider getPositionSlider2() {
         return positionSlider2;
@@ -36,8 +37,6 @@ public class DataRetrieval {
     public void setMassSlider2(JFXSlider massSlider2) {
         this.massSlider2 = massSlider2;
     }
-
-    private JFXSlider massSlider2;
 
     public JFXSlider getPositionSlider() {
         return positionSlider;

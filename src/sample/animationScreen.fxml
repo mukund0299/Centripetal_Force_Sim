@@ -79,5 +79,6 @@
       </Label>
       <Arc fill="DODGERBLUE" layoutX="600.0" layoutY="292.0" length="45.0" radiusX="100.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
       <Circle fill="#9e1fff" layoutX="400.0" layoutY="301.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle fx:id="box2" arcHeight="5.0" arcWidth="5.0" fill="#31c400" height="75.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="75.0" x="450.0" y="301.0" />
     </children>
 </Pane>
