@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -66,15 +67,17 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="frictionForceLabel" layoutX="723.0" layoutY="251.0" text="Friction Force - ">
+      <Label layoutX="723.0" layoutY="251.0" text="Friction Force - ">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="periodLabel1" layoutX="923.0" layoutY="251.0" prefHeight="26.0" prefWidth="152.0">
+      <Label fx:id="frictionForceLabel" layoutX="923.0" layoutY="251.0" prefHeight="26.0" prefWidth="152.0">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
+      <Arc fill="DODGERBLUE" layoutX="600.0" layoutY="292.0" length="45.0" radiusX="100.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
+      <Circle fill="#9e1fff" layoutX="400.0" layoutY="301.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
     </children>
 </Pane>

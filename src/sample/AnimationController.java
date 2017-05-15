@@ -14,7 +14,6 @@ import javafx.scene.shape.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
-import java.awt.geom.Arc2D;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -80,11 +79,11 @@ public class AnimationController implements Initializable{
             double normalForce = mass * 9.8;
             double frictionForce = normalForce * friction;
             //Moving the box around on the path
-            Circle path = new Circle(platform.getCenterX(), platform.getCenterY(), box.getX() - platform.getCenterX());
-            double centForce = (mass * (2 * Math.PI * path.getRadius())) / path.getRadius();
-            double velocity = (2*Math.PI*path.getRadius())/fast;
+            Circle path = new Circle(platform.getCenterX(), platform.getCenterY(), (box.getX()+(box.getWidth()/2)) - platform.getCenterX());
+            double centForce = (mass * Math.pow(2 * Math.PI * (path.getRadius()/1000), 2)) / (path.getRadius()/1000);
+            double velocity = 2*Math.PI*(path.getRadius()/1000)/fast;
             setLabels(position, friction, centForce, velocity, fast, frictionForce);
-            if (centForce > frictionForce) {
+            if (centForce < frictionForce) {
                 PathTransition boxPath = new PathTransition();
                 boxPath.setNode(box);
                 boxPath.setDuration(Duration.seconds(fast));
@@ -93,13 +92,12 @@ public class AnimationController implements Initializable{
                 boxPath.setCycleCount(PathTransition.INDEFINITE);
                 boxPath.play();
             } else {
-                ArcTo altPath = new ArcTo(box.getX(), box.getY(), 50f, 50f);
+                QuadCurve altPath = new QuadCurve(box.getX(), box.getY(), box.getX(), box.getY()-100f, 200f, 50f);
                 PathTransition alternatePath = new PathTransition();
                 alternatePath.setNode(box);
                 alternatePath.setDuration(Duration.seconds(fast));
                 alternatePath.setPath(altPath);
                 alternatePath.setInterpolator(Interpolator.LINEAR);
-                alternatePath.setCycleCount(PathTransition.INDEFINITE);
                 alternatePath.play();
             }
         }
@@ -108,12 +106,10 @@ public class AnimationController implements Initializable{
             double frictionForce = normalForce * friction;
             //Moving the box around on the path
             Circle path = new Circle(platform.getCenterX(), platform.getCenterY(), box.getX() - platform.getCenterX());
-            double centForce = (mass * (2 * Math.PI * path.getRadius())) / path.getRadius();
+            double centForce = (mass * Math.pow(2 * Math.PI * path.getRadius(),2)) / path.getRadius();
             double velocity = (2*Math.PI*path.getRadius())/slow;
-            System.out.println("centForce = " + centForce);
-            System.out.println("frictionForce = " + frictionForce);
             setLabels(position, friction, centForce, velocity, slow, frictionForce);
-            if (centForce > frictionForce) {
+            if (centForce < frictionForce) {
                 PathTransition boxPath = new PathTransition();
                 boxPath.setNode(box);
                 boxPath.setDuration(Duration.seconds(slow));
@@ -140,6 +136,6 @@ public class AnimationController implements Initializable{
         centForceLabel.setText(Double.toString(centForce));
         velocityLabel.setText(Double.toString(velocity));
         periodLabel.setText(Double.toString(period));
-        frictionLabel.setText(Double.toString(frictionForce));
+        frictionForceLabel.setText(Double.toString(frictionForce));
     }
 }
