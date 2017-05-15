@@ -31,19 +31,33 @@ public class InputController implements Initializable{
     JFXSlider massInput;
 
     @FXML
+    JFXSlider massInput2;
+
+    @FXML
+    JFXSlider positionInput2;
+
+    @FXML
     public void handleCreateAnimation(ActionEvent event) throws IOException{
         //Setting the data to this class in order to retrieve it in the next window
         DataRetrieval.getInstance().setFrictionSlider(frictionInput);
         DataRetrieval.getInstance().setPositionSlider(positionInput);
         DataRetrieval.getInstance().setPeriodBox(periodInput);
         DataRetrieval.getInstance().setMassSlider(massInput);
+        DataRetrieval.getInstance().setMassSlider2(massInput2);
+        DataRetrieval.getInstance().setPositionSlider2(positionInput2);
 
         //Creating a new window to show the animation
         Parent myParent = FXMLLoader.load(getClass().getResource("animationScreen.fxml"));
         Scene newScene = new Scene(myParent);
-        Stage appStage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(newScene);
         appStage.show();
+    }
+
+    @FXML
+    public void handleActivateBox(ActionEvent event) throws IOException{
+        massInput2.setDisable(false);
+        positionInput2.setDisable(false);
     }
 
     @Override

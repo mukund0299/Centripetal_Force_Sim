@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXSlider?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="352.0" prefWidth="393.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.InputController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="394.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.InputController">
     <children>
         <Label layoutX="25.0" layoutY="77.0" text="Friction">
             <font>
@@ -38,10 +39,27 @@
       <JFXSlider fx:id="positionInput" layoutX="171.0" layoutY="126.0" majorTickUnit="0.05" max="1.0" min="0.5" prefHeight="16.0" prefWidth="167.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
       <JFXComboBox fx:id="periodInput" layoutX="171.0" layoutY="180.0" prefHeight="27.0" prefWidth="167.0" promptText="Choose Period" />
       <JFXSlider fx:id="massInput" layoutX="171.0" layoutY="221.0" prefHeight="38.0" prefWidth="167.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-      <JFXButton layoutX="149.0" layoutY="279.0" onAction="#handleCreateAnimation" text="Submit">
+      <JFXButton layoutX="148.0" layoutY="427.0" onAction="#handleCreateAnimation" text="Submit">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
+      <JFXCheckBox layoutX="118.0" layoutY="271.0" onAction="#handleActivateBox" text="Two Objects">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXCheckBox>
+      <Label layoutX="25.0" layoutY="315.0" prefHeight="26.0" prefWidth="131.0" text="Position 2 - ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <JFXSlider fx:id="positionInput2" disable="true" layoutX="193.0" layoutY="309.0" majorTickUnit="0.05" max="1.0" min="0.5" prefHeight="16.0" prefWidth="167.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+      <Label layoutX="25.0" layoutY="374.0" prefHeight="26.0" prefWidth="131.0" text="Mass 2 - ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <JFXSlider fx:id="massInput2" disable="true" layoutX="193.0" layoutY="368.0" prefHeight="38.0" prefWidth="167.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
     </children>
 </AnchorPane>

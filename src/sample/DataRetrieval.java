@@ -19,6 +19,25 @@ public class DataRetrieval {
     private JFXSlider frictionSlider;
     private JFXComboBox<String> periodBox;
     private JFXSlider massSlider;
+    private JFXSlider positionSlider2;
+
+    public JFXSlider getPositionSlider2() {
+        return positionSlider2;
+    }
+
+    public void setPositionSlider2(JFXSlider positionSlider2) {
+        this.positionSlider2 = positionSlider2;
+    }
+
+    public JFXSlider getMassSlider2() {
+        return massSlider2;
+    }
+
+    public void setMassSlider2(JFXSlider massSlider2) {
+        this.massSlider2 = massSlider2;
+    }
+
+    private JFXSlider massSlider2;
 
     public JFXSlider getPositionSlider() {
         return positionSlider;
