@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Arc?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
@@ -80,5 +81,46 @@
       <Arc fill="DODGERBLUE" layoutX="600.0" layoutY="292.0" length="45.0" radiusX="100.0" startAngle="90.0" stroke="BLACK" strokeType="INSIDE" type="ROUND" />
       <Circle fill="#9e1fff" layoutX="400.0" layoutY="301.0" radius="10.0" stroke="BLACK" strokeType="INSIDE" />
       <Rectangle fx:id="box2" arcHeight="5.0" arcWidth="5.0" fill="#31c400" height="75.0" stroke="BLACK" strokeType="INSIDE" visible="false" width="75.0" x="450.0" y="301.0" />
+      <Label fx:id="positionLabelMarker2" layoutX="728.0" layoutY="319.0" text="Position 2 - ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="centForceLabelMarker2" layoutX="725.0" layoutY="363.0" text="Centripetal Force 2 - ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="frictionForceLabelMarker2" layoutX="725.0" layoutY="407.0" text="Friction Force 2 - ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="velocityLabelMarker2" layoutX="728.0" layoutY="449.0" text="Velocity 2 - ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="positionLabel2" layoutX="927.0" layoutY="319.0" prefHeight="26.0" prefWidth="152.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="centForceLabel2" layoutX="927.0" layoutY="363.0" prefHeight="26.0" prefWidth="152.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="frictionForceLabel2" layoutX="927.0" layoutY="407.0" prefHeight="26.0" prefWidth="152.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="velocityLabel2" layoutX="927.0" layoutY="449.0" prefHeight="26.0" prefWidth="152.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Line endX="200.0" layoutX="850.0" layoutY="301.0" startX="-100.0" />
     </children>
 </Pane>
