@@ -248,15 +248,15 @@ public class AnimationController implements Initializable{
     //Update all the labels on the side of the screen with the right values
     private void setLabels(double position, double friction, double centForce, double velocity, double period, double frictionForce, double position2, double centForce2, double velocity2, double frictionForce2){
         //Box 1
-        positionLabel.setText(Integer.toString(Math.round((float)position)));
-        frictionLabel.setText(Integer.toString(Math.round((float)friction)));
+        positionLabel.setText(Double.toString(position));
+        frictionLabel.setText(Double.toString(friction));
         centForceLabel.setText(Integer.toString(Math.round((float)centForce)) + " N");
         velocityLabel.setText(Double.toString(velocity));
         periodLabel.setText(Integer.toString(Math.round((float)period))+ " s");
         frictionForceLabel.setText(Integer.toString(Math.round((float)frictionForce)) + " N");
 
         //Box2
-        positionLabel2.setText(Integer.toString(Math.round((float)position2)));
+        positionLabel2.setText(Double.toString(position2));
         centForceLabel2.setText(Integer.toString(Math.round((float)centForce2)) + " N");
         velocityLabel2.setText(Double.toString(velocity2));
         frictionForceLabel2.setText(Integer.toString(Math.round((float)frictionForce2)) + " N");

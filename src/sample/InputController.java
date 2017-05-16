@@ -63,5 +63,6 @@ public class InputController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources){
         periodInput.getItems().addAll("Fast", "Slow");
+        periodInput.getSelectionModel().selectFirst();
     }
 }
